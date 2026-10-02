@@ -1,0 +1,6 @@
+{
+  "name": "EGC Cockpit - Runtime & Architecture Hub",
+  "description": "Extended Global Context runtime console, technical sparring studio, memory mesh monitor, token crusher & Google Drive sync engine.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
