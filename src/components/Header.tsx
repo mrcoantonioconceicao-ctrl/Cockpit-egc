@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, Shield, Zap, Cpu, Server, Activity, Database, GitMerge, Network, Smartphone, Menu, X, Layers } from 'lucide-react';
+import { Terminal, Shield, Zap, Cpu, Server, Activity, Database, GitMerge, Network, Smartphone, Menu, X, Layers, Cloud } from 'lucide-react';
 
 interface HeaderProps {
-  activeTab: 'sparring' | 'multirepo' | 'platform' | 'pillars' | 'milestones' | 'artifacts';
-  setActiveTab: (tab: 'sparring' | 'multirepo' | 'platform' | 'pillars' | 'milestones' | 'artifacts') => void;
+  activeTab: 'sparring' | 'multirepo' | 'platform' | 'pillars' | 'milestones' | 'artifacts' | 'sync';
+  setActiveTab: (tab: 'sparring' | 'multirepo' | 'platform' | 'pillars' | 'milestones' | 'artifacts' | 'sync') => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
@@ -86,6 +86,15 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
       icon: Database,
       color: 'text-emerald-400',
       activeBg: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+    },
+    {
+      id: 'sync' as const,
+      label: 'Google Drive Sync & Integrity',
+      shortLabel: 'Drive Sync',
+      desc: 'Polling de backup e integridade de arquivos SHA-256',
+      icon: Cloud,
+      color: 'text-cyan-400',
+      activeBg: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40',
     },
   ];
 

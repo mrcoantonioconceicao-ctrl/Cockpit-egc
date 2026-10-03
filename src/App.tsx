@@ -6,10 +6,11 @@ import { MultiplatformNode } from './components/MultiplatformNode';
 import { PillarsOverview } from './components/PillarsOverview';
 import { MilestonePlanner } from './components/MilestonePlanner';
 import { CodeArtifacts } from './components/CodeArtifacts';
+import { GoogleDriveSyncEngine } from './components/GoogleDriveSyncEngine';
 import { Terminal, Shield, Zap, Cpu, Server, GitMerge } from 'lucide-react';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'sparring' | 'multirepo' | 'platform' | 'pillars' | 'milestones' | 'artifacts'>('platform');
+  const [activeTab, setActiveTab] = useState<'sparring' | 'multirepo' | 'platform' | 'pillars' | 'milestones' | 'artifacts' | 'sync'>('sync');
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-red-500 selection:text-white">
@@ -24,6 +25,7 @@ export default function App() {
         {activeTab === 'pillars' && <PillarsOverview />}
         {activeTab === 'milestones' && <MilestonePlanner />}
         {activeTab === 'artifacts' && <CodeArtifacts />}
+        {activeTab === 'sync' && <GoogleDriveSyncEngine />}
       </main>
 
       {/* Footer System Telemetry */}

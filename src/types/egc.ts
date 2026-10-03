@@ -90,4 +90,40 @@ export interface DeviceProfile {
   status: 'ONLINE' | 'STANDBY';
 }
 
+export interface VaultSyncFile {
+  id: string;
+  name: string;
+  vaultPath: string;
+  sizeBytes: number;
+  localSha256: string;
+  remoteSha256: string;
+  integrityStatus: 'VERIFIED' | 'MISMATCH' | 'SYNCING';
+  lastModified: string;
+  lastBackupTimestamp: string;
+  encryption: 'AES-256-GCM + Argon2id';
+  chunkCount: number;
+  workspace: string;
+}
+
+export interface DriveSyncState {
+  status: 'IDLE' | 'POLLING' | 'SYNCING' | 'VERIFYING_HASHES' | 'ERROR';
+  syncMode: 'CONTINUOUS_POLL' | 'MANUAL_TRIGGER';
+  lastPollTimestamp: string;
+  lastSuccessfulBackupTimestamp: string;
+  remoteDriveFolder: string;
+  totalVaultFiles: number;
+  verifiedFilesCount: number;
+  totalSizeMb: number;
+  bandwidthKbps: number;
+  integrityScorePercent: number;
+  files: VaultSyncFile[];
+  daemonSocketConnected: boolean;
+  activityLogs: {
+    id: string;
+    timestamp: string;
+    level: 'INFO' | 'SUCCESS' | 'WARN' | 'ERROR';
+    message: string;
+  }[];
+}
+
 
